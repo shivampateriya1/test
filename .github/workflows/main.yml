@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Checking branch checkouts
 
 # Controls when the workflow will run
 on:
@@ -8,13 +8,18 @@ on:
   push:
     branches: [ main,check,dev]
 
+  pull_request:
+    branches:
+      - main
+      - dev
+
   # Allows you to run this workflow manually from the Actions tab
   # workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  checking-branch-checkouts:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -25,4 +30,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: cat "1.txt"
+        run: cat "hello.txt"
