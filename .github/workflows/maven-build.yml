@@ -27,9 +27,11 @@ jobs:
       - name  : docker
         run: docker build -t springtest .
       - name: docker login 
-        env:  
-           DOCKER_USER : ${{secrets.DOCKER_USER}}
-           DOCKER_PASS : ${{secrets.DOCKER_PASS}}
+        # env:  
+        #    DOCKER_USER : ${{secrets.DOCKER_USER}}
+        #    DOCKER_PASS : ${{secrets.DOCKER_PASS}}
         run: |
-          echo ${{ secrets.DOCKER_PASS}} | docker login -u shivampateriyaknoldus --password-stdin
-      # - name: docker push  
+          echo ${{secrets.DOCKER_PASS}} | docker login -u shivampateriyaknoldus --password-stdin
+      - name: docker push  
+        run: |
+             docker push shivampateriyaknoldus/springtest
