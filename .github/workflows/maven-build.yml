@@ -26,3 +26,9 @@ jobs:
       #   run: ./mvnw -B package
       - name  : docker
         run: docker build -t springtest .
+      - name: docker login 
+        env:  
+           DOCKER_USER : ${{secrets.DOCKER_USER}}
+           DOCKER_PASS : ${{secret.DOCKER_PASS}}
+        run: docker login -u $DOCKER_USER -p $DOCKER_PASS
+        
