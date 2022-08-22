@@ -31,5 +31,5 @@ jobs:
            DOCKER_USER : ${{secrets.DOCKER_USER}}
            DOCKER_PASS : ${{secrets.DOCKER_PASS}}
         run: |
-          echo ${{ secrets.DOCKER_PASS}} | docker login -u $DOCKER_USER --password-stdin
+          echo ${{ secrets.DOCKER_PASS}} | docker login -u shivampateriyaknoldus --password-stdin
       # - name: docker push  
